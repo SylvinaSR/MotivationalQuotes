@@ -1,11 +1,10 @@
-package com.sylviepractices.motivationalquotes.domain
+package com.sylviepractices.motivationalquotes.domain.usecases
 
 import com.sylviepractices.motivationalquotes.domain.repository.QuotesRepository
 import com.sylviepractices.motivationalquotes.model.QuoteModel
-import com.sylviepractices.motivationalquotes.model.QuotesModelDummy
 import javax.inject.Inject
 
-class GetQuoteUseCase @Inject constructor(
+class GetQuotesUseCase @Inject constructor(
     private val repository: QuotesRepository
 ) {
 
