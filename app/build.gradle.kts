@@ -73,6 +73,9 @@ dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
+    //LiveData
+    implementation(libs.androidx.runtime.livedata)
+
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
