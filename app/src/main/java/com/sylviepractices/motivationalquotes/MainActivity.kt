@@ -11,18 +11,26 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
 import com.sylviepractices.motivationalquotes.ui.theme.MotivationalQuotesTheme
+import com.sylviepractices.motivationalquotes.ui.theme.White
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var navHostController: NavHostController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             MotivationalQuotesTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    containerColor = White
+                ) { innerPadding ->
+                    NavigationWrapper(
+                        modifier = Modifier.padding(innerPadding),
+                        navHostController = navHostController
                     )
                 }
             }
