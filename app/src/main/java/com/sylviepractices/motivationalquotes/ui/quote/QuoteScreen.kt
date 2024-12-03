@@ -32,6 +32,8 @@ fun QuoteScreen(viewModel: QuoteViewModel) {
         )
     )
 
+    viewModel.init()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
