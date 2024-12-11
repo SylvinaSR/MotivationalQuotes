@@ -9,13 +9,14 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class QuotesRepositoryImpl @Inject constructor(
-    private val apiService: ApiService
+    private val apiService: ApiService,
+    private val provider: QuoteProvider
 ): QuotesRepository {
 
     override suspend fun getQuotes(): List<QuoteModel> {
         return withContext(Dispatchers.IO){
             val response = apiService.getAllQuotes()
-            QuoteProvider.quotes = response.body() ?: emptyList()
+            provider.quotes = response.body() ?: emptyList()
             response.body() ?: emptyList()
         }
     }
