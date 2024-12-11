@@ -7,6 +7,6 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("/.json")
-    suspend fun getAllQuotes(): Response<List<QuoteModel>>
+    suspend fun getAllQuotes(): Response<List<QuoteResponse>>
 
 }

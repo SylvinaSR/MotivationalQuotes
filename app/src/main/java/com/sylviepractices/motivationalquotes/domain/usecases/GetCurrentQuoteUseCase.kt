@@ -1,15 +1,15 @@
 package com.sylviepractices.motivationalquotes.domain.usecases
 
+import com.sylviepractices.motivationalquotes.domain.repository.QuotesRepository
 import com.sylviepractices.motivationalquotes.model.QuoteModel
-import com.sylviepractices.motivationalquotes.model.QuoteProvider
 import javax.inject.Inject
 
 class GetCurrentQuoteUseCase @Inject constructor(
-    private val provider: QuoteProvider
+    private val repository: QuotesRepository
 ) {
 
-    operator fun invoke(): QuoteModel? {
-        val quotes = provider.quotes
+    suspend operator fun invoke(): QuoteModel? {
+        val quotes = repository.getQuotesFromDatabase()
         if (quotes.isNotEmpty()) {
             return quotes[(quotes.indices).random()]
         }

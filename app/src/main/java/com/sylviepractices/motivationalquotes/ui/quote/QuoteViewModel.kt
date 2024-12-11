@@ -39,12 +39,14 @@ class QuoteViewModel @Inject constructor(
     }
 
     fun randomQuote(){
-        _isLoading.postValue(true)
-        val quote = currentQuote.invoke()
-        if (quote != null){
-            _quoteModel.postValue(quote)
+        viewModelScope.launch {
+            _isLoading.postValue(true)
+            val quote = currentQuote.invoke()
+            if (quote != null){
+                _quoteModel.postValue(quote)
+            }
+            _isLoading.postValue(false)
         }
-        _isLoading.postValue(false)
     }
 
 }
